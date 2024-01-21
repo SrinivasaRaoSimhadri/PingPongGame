@@ -1,3 +1,2 @@
-OpenCV
-Mediapipe
-Turtle
+opencv-python
+mediapipe
