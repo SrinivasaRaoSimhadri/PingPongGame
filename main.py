@@ -60,21 +60,26 @@ while True:
     if cv.waitKey(1) != -1:
         break
 
+    # moving ball
     ball.setx(ball.xcor() + ball.dx)
     ball.sety(ball.ycor() + ball.dy)
 
+    # if ball hits top of window then change direction
     if ball.ycor() > 290:
         ball.sety(290)
         ball.dy *= -1
 
+    # if ball hits right wall of window then change direction
     if ball.xcor() > 490:
         ball.setx(490)
         ball.dx *= -1
 
+    # if ball hits left wall of window then change direction
     if ball.xcor() < -490:
         ball.setx(-495)
         ball.dx *= -1
 
+    # if ball crosses the pad indication palayer is out
     if ball.ycor() < -280:
         sketch.goto(0, 100)
         sketch.write("    GAME OVER \n your score is : {}".format(player), align="center",
@@ -82,11 +87,14 @@ while True:
         sc.mainloop()
         break
 
+    # maintaing the pad not moving out of  the right and left walls
     x_pad, y_pad = Pad.xcor(), Pad.ycor()
     if x_pad > 440:
         Pad.setx(440)
     if x_pad < -440:
         Pad.setx(-440)
+
+
     x_ball, y_ball = ball.xcor(), ball.ycor()
     if x_pad + 60 >= x_ball >= x_pad - 60 and y_ball <= -252:
         player += 1
