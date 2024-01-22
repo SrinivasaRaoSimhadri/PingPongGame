@@ -79,7 +79,7 @@ while True:
         ball.setx(-495)
         ball.dx *= -1
 
-    # if ball crosses the pad indication palayer is out
+    # if ball crosses the pad indication player is out
     if ball.ycor() < -280:
         sketch.goto(0, 100)
         sketch.write("    GAME OVER \n your score is : {}".format(player), align="center",
@@ -87,14 +87,15 @@ while True:
         sc.mainloop()
         break
 
-    # maintaing the pad not moving out of  the right and left walls
+    # maintaining the pad not moving out of  the right and left walls
     x_pad, y_pad = Pad.xcor(), Pad.ycor()
     if x_pad > 440:
         Pad.setx(440)
     if x_pad < -440:
         Pad.setx(-440)
 
-
+    # checking  whether the ball is aligning in pads length range and hitting the pad
+    # if this happens score is increased and ball changes its direction.
     x_ball, y_ball = ball.xcor(), ball.ycor()
     if x_pad + 60 >= x_ball >= x_pad - 60 and y_ball <= -252:
         player += 1
