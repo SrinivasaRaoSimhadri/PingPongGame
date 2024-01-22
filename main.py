@@ -103,3 +103,4 @@ while True:
         sketch.write("score : {} ".format(player), align="center", font=("Courier", 24, "normal"))
         ball.sety(-252)
         ball.dy *= -1
+        ## sjdhbf sd bfis difus
