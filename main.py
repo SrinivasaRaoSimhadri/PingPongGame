@@ -53,6 +53,10 @@ while True:
     frame = cv.flip(frame, 1)
     imgRGB = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
     results = hands.process(imgRGB)
+
+    # if hand is present
+    # then based on 8th landmark i.e tip of index finger , the move is mapped as an input of pad movement
+    # thus the pad move based on the hand or index finger tip movement
     if results.multi_hand_landmarks:
         move = int(results.multi_hand_landmarks[0].landmark[8].x * 1000)
         Pad.setx(move - 500)
@@ -103,4 +107,3 @@ while True:
         sketch.write("score : {} ".format(player), align="center", font=("Courier", 24, "normal"))
         ball.sety(-252)
         ball.dy *= -1
-        ## sjdhbf sd bfis difus
